@@ -34,6 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Logo click → close all drawers (go back to graph home)
+  const logoBtn = document.getElementById("logo-home-btn");
+  if (logoBtn) {
+    logoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log("Logo home button clicked!");
+      closeAllDrawers();
+      // Also close mobile nav if it's open
+      if (mainNav && mainNav.classList.contains("nav-open")) {
+        toggleNav();
+      }
+    });
+  }
+
   // Bind Escape key to close drawers
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
