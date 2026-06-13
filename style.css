@@ -1149,29 +1149,29 @@ header {
   .git-date {
     margin-top: 2px;
   }
-}
 
 /* Keep fullscreen graph on mobile, overlay stays full */
 
 /* Canvas controls removed from mobile overlay */
 
-  .glass-section {
-    width: 90vw;
-    right: -100vw;
-    padding: 85px 16px 20px 16px;
-  }
+.glass-section {
+  width: 90vw;
+  right: -100vw;
+  padding: 85px 16px 20px 16px;
+}
 
-  .section-title {
-    font-size: 1.6rem;
-  }
-  
-  .skills-grid-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .footer-container {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
+.section-title {
+  font-size: 1.6rem;
+}
+
+.skills-grid-container {
+  grid-template-columns: 1fr;
+}
+
+.footer-container {
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
 }
