@@ -1,0 +1,1152 @@
+/* ==========================================================================
+   DESIGN SYSTEM & GLOBAL CSS TOKENS
+   ========================================================================== */
+:root {
+  --bg-color: #080b11;
+  --panel-bg: rgba(13, 20, 35, 0.45);
+  --panel-border: rgba(0, 242, 254, 0.15);
+  --panel-border-hover: rgba(0, 242, 254, 0.35);
+  
+  /* Color Palette */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-purple: #9d4edd;
+  --accent-orange: #ff6b00;
+  --accent-green: #00ff87;
+  
+  /* Fonts */
+  --font-mono: 'Share Tech Mono', 'Fira Code', monospace;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Shadows */
+  --glow-cyan: 0 0 15px rgba(0, 242, 254, 0.3);
+  --glow-cyan-strong: 0 0 25px rgba(0, 242, 254, 0.6);
+  --glow-orange: 0 0 15px rgba(255, 107, 0, 0.3);
+  --glow-purple: 0 0 15px rgba(157, 78, 221, 0.3);
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   BASE STYLES & BACKGROUNDS
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  height: 100vh;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.2);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 242, 254, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Coordinate Grid Background */
+.cyber-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.035) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+.glow-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(8, 11, 17, 0.85) 80%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   NAVIGATION HEADER
+   ========================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(8, 11, 17, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  transition: all var(--transition-speed) var(--transition-curve);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Area */
+.logo-area {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-name {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+}
+
+.code-bracket {
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+/* Main Nav Links */
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+#main-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  padding: 6px 0;
+}
+
+#main-nav a i {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+#main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+  transition: width 0.25s ease;
+}
+
+#main-nav a:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+#main-nav a:hover i {
+  color: var(--accent-cyan);
+}
+
+#main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Header Contact Icons */
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-contact a {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  transition: all 0.25s ease;
+}
+
+.header-contact a:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+#mail:hover { color: var(--accent-cyan); text-shadow: var(--glow-cyan); }
+#linkedin:hover { color: #0077b5; }
+#github:hover { color: #fff; }
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO / INTERACTIVE CANVAS GRAPH SECTION
+   ========================================================================== */
+.hero-graph-section {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.graph-canvas-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(13, 25, 48, 0.3) 0%, transparent 70%);
+}
+
+#graph-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Floating Controls Overlay */
+.canvas-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(8, 12, 21, 0.8);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 320px;
+  z-index: 5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.control-title {
+  font-family: var(--font-mono);
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pulse-icon {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px var(--accent-cyan)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--accent-cyan)); }
+}
+
+.control-instructions {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.control-instructions span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-instructions i {
+  color: var(--accent-blue);
+  width: 14px;
+  text-align: center;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.control-buttons button {
+  flex: 1;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.control-buttons button:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* ==========================================================================
+   GLASSMORPHIC CARDS & SECTIONS
+   ========================================================================== */
+.drawers-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.glass-section {
+  position: fixed;
+  top: 0;
+  right: -550px;
+  width: 500px;
+  max-width: 95%;
+  height: 100vh;
+  z-index: 90;
+  background: rgba(8, 12, 21, 0.75);
+  border: none;
+  border-left: 1px solid var(--panel-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 0;
+  padding: 100px 30px 40px 30px;
+  box-shadow: none;
+  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color var(--transition-speed) ease;
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+/* Hide default borders as drawers are full height */
+.glass-section::before,
+.glass-section::after {
+  display: none;
+}
+
+.glass-section.drawer-open {
+  right: 0;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 242, 254, 0.05);
+  border-left-color: var(--accent-cyan);
+}
+
+.drawer-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 242, 254, 0.05);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 95;
+}
+
+.drawer-close-btn:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  box-shadow: var(--glow-cyan);
+  transform: scale(1.05);
+}
+
+/* Titles and Typography */
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.5px;
+}
+
+.section-title i {
+  color: var(--accent-cyan);
+  filter: drop-shadow(0 0 5px rgba(0, 242, 254, 0.4));
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 35px;
+  max-width: 700px;
+}
+
+/* ==========================================================================
+   TERMINAL (ABOUT ME) STYLE
+   ========================================================================== */
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.terminal-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-dots .red { background-color: #ff5f56; }
+.terminal-dots .yellow { background-color: #ffbd2e; }
+.terminal-dots .green { background-color: #27c93f; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.terminal-body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+.terminal-body p {
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+.terminal-body strong {
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.command-line {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 24px 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.command-line .prompt {
+  color: var(--accent-green);
+}
+
+.neofetch-data {
+  font-family: var(--font-mono);
+  background: rgba(8, 11, 17, 0.5);
+  border-left: 3px solid var(--accent-blue);
+  padding: 16px 20px;
+  border-radius: 4px;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.neo-label {
+  color: var(--accent-cyan);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   GIT BRANCH TIMELINE (JOURNEY)
+   ========================================================================== */
+.git-graph-container {
+  position: relative;
+  padding-left: 90px;
+  margin-top: 20px;
+}
+
+/* Canvas drawing git connector lines */
+#git-line-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.git-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.git-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Hash badge above cards */
+.git-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.git-hash {
+  color: var(--text-muted);
+  background: rgba(148, 163, 184, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(148, 163, 184, 0.05);
+}
+
+.git-ref {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.ref-main {
+  background: rgba(0, 242, 254, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.ref-feature {
+  background: rgba(255, 107, 0, 0.12);
+  color: var(--accent-orange);
+  border: 1px solid rgba(255, 107, 0, 0.3);
+}
+
+.ref-clubs {
+  background: rgba(157, 78, 221, 0.12);
+  color: var(--accent-purple);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+}
+
+.ref-fest {
+  background: rgba(0, 255, 135, 0.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 255, 135, 0.3);
+}
+
+/* Git cards */
+.git-card {
+  background: rgba(13, 20, 35, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 8px;
+  padding: 20px 24px;
+  transition: all var(--transition-speed) ease;
+}
+
+.git-card:hover {
+  background: rgba(13, 20, 35, 0.6);
+  border-color: rgba(148, 163, 184, 0.2);
+  transform: translateX(4px);
+}
+
+.git-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.git-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.git-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.git-subtitle {
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.git-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.git-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.git-list li {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 60px;
+}
+
+.git-list li::before {
+  content: 'commit';
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-blue);
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.git-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tag {
+  background: rgba(148, 163, 184, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag i {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SKILLS NETWORK MESH
+   ========================================================================== */
+.skills-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.skill-group-card {
+  background: rgba(13, 20, 35, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all var(--transition-speed) ease;
+}
+
+.skill-group-card:hover {
+  border-color: rgba(0, 242, 254, 0.2);
+  background: rgba(13, 20, 35, 0.55);
+}
+
+.skill-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+  padding-bottom: 10px;
+}
+
+.skill-group-icon {
+  font-size: 1.1rem;
+  color: var(--accent-cyan);
+}
+
+.skill-group-header h3 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: bold;
+}
+
+.skill-badge-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-node {
+  background: rgba(13, 20, 35, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.skill-node .glow-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+/* Hover highlights */
+.skill-node:hover {
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  background: rgba(0, 242, 254, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.15);
+}
+
+.skill-node:hover .glow-dot {
+  background-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Highlights when related skill is hovered */
+.skill-node.highlight-relation {
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+  background: rgba(79, 172, 254, 0.1);
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.2);
+}
+
+.skill-node.highlight-relation .glow-dot {
+  background-color: var(--accent-blue);
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+
+/* ==========================================================================
+   PROJECTS SECTION & CARDS
+   ========================================================================== */
+.projects-network-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.project-mesh-card {
+  background: rgba(13, 20, 35, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-speed) var(--transition-curve);
+  position: relative;
+}
+
+/* Visual node connector line indicator */
+.project-mesh-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent-cyan);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-mesh-card:hover {
+  border-color: rgba(0, 242, 254, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), var(--glow-cyan);
+  background: rgba(13, 20, 35, 0.6);
+  transform: translateY(-4px);
+}
+
+.project-mesh-card:hover::before {
+  opacity: 1;
+}
+
+/* Status Bar styling */
+.project-status-bar {
+  background: rgba(8, 11, 17, 0.5);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+}
+
+.status-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-category {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-indicator.online {
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+.project-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Card Body content */
+.project-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 14px;
+}
+
+.project-card-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.project-card-body p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Tags in project cards */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.tag-chip.godot { background: rgba(93, 173, 226, 0.1); color: #5dade2; border-color: rgba(93, 173, 226, 0.2); }
+.tag-chip.pixel { background: rgba(244, 208, 63, 0.1); color: #f4d03f; border-color: rgba(244, 208, 63, 0.2); }
+.tag-chip.game { background: rgba(235, 104, 65, 0.1); color: #eb6841; border-color: rgba(235, 104, 65, 0.2); }
+.tag-chip.svelte { background: rgba(255, 62, 0, 0.1); color: #ff3e00; border-color: rgba(255, 62, 0, 0.2); }
+.tag-chip.js { background: rgba(241, 224, 90, 0.1); color: #f1e05a; border-color: rgba(241, 224, 90, 0.2); }
+.tag-chip.web { background: rgba(0, 242, 254, 0.1); color: var(--accent-cyan); border-color: rgba(0, 242, 254, 0.2); }
+.tag-chip.esp { background: rgba(231, 76, 60, 0.1); color: #e74c3c; border-color: rgba(231, 76, 60, 0.2); }
+.tag-chip.arduino { background: rgba(0, 151, 156, 0.1); color: #00979c; border-color: rgba(0, 151, 156, 0.2); }
+.tag-chip.embedded { background: rgba(46, 204, 113, 0.1); color: #2ecc71; border-color: rgba(46, 204, 113, 0.2); }
+.tag-chip.html { background: rgba(230, 81, 0, 0.1); color: #e65100; border-color: rgba(230, 81, 0, 0.2); }
+.tag-chip.tool { background: rgba(155, 89, 182, 0.1); color: #9b59b6; border-color: rgba(155, 89, 182, 0.2); }
+.tag-chip.lua { background: rgba(0, 0, 128, 0.1); color: #000080; border-color: rgba(0, 0, 128, 0.2); }
+.tag-chip.nvim { background: rgba(87, 162, 71, 0.1); color: #57a247; border-color: rgba(87, 162, 71, 0.2); }
+.tag-chip.react { background: rgba(97, 218, 251, 0.1); color: #61dafb; border-color: rgba(97, 218, 251, 0.2); }
+.tag-chip.onnx { background: rgba(255, 183, 3, 0.1); color: #ffb703; border-color: rgba(255, 183, 3, 0.2); }
+.tag-chip.privacy { background: rgba(224, 170, 255, 0.1); color: #e0aaff; border-color: rgba(224, 170, 255, 0.2); }
+.tag-chip.fastapi { background: rgba(0, 150, 136, 0.1); color: #009688; border-color: rgba(0, 150, 136, 0.2); }
+.tag-chip.cv { background: rgba(255, 94, 98, 0.1); color: #ff5e62; border-color: rgba(255, 94, 98, 0.2); }
+.tag-chip.yolo { background: rgba(243, 156, 18, 0.1); color: #f39c12; border-color: rgba(243, 156, 18, 0.2); }
+.tag-chip.cpp { background: rgba(0, 115, 230, 0.1); color: #0073e6; border-color: rgba(0, 115, 230, 0.2); }
+.tag-chip.openssl { background: rgba(149, 165, 166, 0.1); color: #95a5a6; border-color: rgba(149, 165, 166, 0.2); }
+
+/* Project actions */
+.project-links {
+  margin-top: 10px;
+  display: flex;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 242, 254, 0.08);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.github-btn:hover {
+  background: var(--accent-cyan);
+  color: var(--bg-color);
+  box-shadow: var(--glow-cyan-strong);
+  font-weight: 700;
+}
+
+.no-github {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.overlay-footer {
+  position: fixed;
+  bottom: 12px;
+  right: 24px;
+  z-index: 5;
+  background: transparent;
+  border-top: none;
+  padding: 0;
+  margin-top: 0;
+  pointer-events: none;
+}
+
+.overlay-footer .footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.overlay-footer .footer-copy {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+.overlay-footer .footer-tech {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE)
+   ========================================================================== */
+/* Graph is fullscreen, keep it 100% on tablets */
+  
+  .projects-network-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 110;
+  }
+
+  #main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(8, 11, 17, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform var(--transition-speed) ease-in-out;
+    z-index: 105;
+  }
+
+  #main-nav.nav-open {
+    transform: translateX(0);
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  #main-nav a {
+    font-size: 1.3rem;
+  }
+
+  .header-contact {
+    margin-right: 40px; /* Make space for hamburger button */
+  }
+
+  /* Git Timeline adjustments */
+  .git-graph-container {
+    padding-left: 0;
+  }
+  
+  #git-line-canvas {
+    display: none; /* Hide timeline canvas tree on small screens */
+  }
+  
+  .git-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-cyan);
+    opacity: 0.3;
+  }
+  
+  .git-node {
+    padding-left: 28px;
+  }
+  
+  .git-node::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 24px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: var(--glow-cyan);
+    z-index: 5;
+  }
+  
+  .git-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .git-date {
+    margin-top: 2px;
+  }
+}
+
+/* Keep fullscreen graph on mobile, overlay stays full */
+
+  .canvas-controls {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+
+  .glass-section {
+    width: 100vw;
+    right: -100vw;
+    padding: 100px 20px 20px 20px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .skills-grid-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
