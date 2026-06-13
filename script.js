@@ -51,10 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleNav() {
     mainNav.classList.toggle("nav-open");
     if (mainNav.classList.contains("nav-open")) {
-      document.body.style.overflow = "hidden";
       menuToggle.innerHTML = '<i class="fas fa-times"></i>';
     } else {
-      document.body.style.overflow = "";
       menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
     }
   }
@@ -392,60 +390,64 @@ document.addEventListener("DOMContentLoaded", () => {
     const cX = width / 2;
     const cY = height / 2;
 
+    const isMobile = width < 768;
+    const spacingScale = isMobile ? 0.52 : 1.0;
+    const linkScale = isMobile ? 0.6 : 1.0;
+
     // 1. Central Hub Node
     const center = new Node("center", "PARJANYA K", cX, cY, 32, "#00f2fe", "center", "#about");
     nodes.push(center);
 
     // 2. Category Nodes
-    const about = new Node("about", "About Me", cX - 180, cY - 80, 20, "#00f2fe", "category", "#about");
-    const experience = new Node("experience", "Experience", cX + 180, cY - 80, 20, "#ff6b00", "category", "#experience");
-    const skills = new Node("skills", "Skills", cX - 180, cY + 120, 20, "#9d4edd", "category", "#skills");
-    const projects = new Node("projects", "Projects", cX + 180, cY + 120, 20, "#00ff87", "category", "#projects");
+    const about = new Node("about", "About Me", cX - 180 * spacingScale, cY - 80 * spacingScale, 20, "#00f2fe", "category", "#about");
+    const experience = new Node("experience", "Experience", cX + 180 * spacingScale, cY - 80 * spacingScale, 20, "#ff6b00", "category", "#experience");
+    const skills = new Node("skills", "Skills", cX - 180 * spacingScale, cY + 120 * spacingScale, 20, "#9d4edd", "category", "#skills");
+    const projects = new Node("projects", "Projects", cX + 180 * spacingScale, cY + 120 * spacingScale, 20, "#00ff87", "category", "#projects");
 
     nodes.push(about, experience, skills, projects);
     links.push(
-      new Link(center, about, 160),
-      new Link(center, experience, 160),
-      new Link(center, skills, 160),
-      new Link(center, projects, 160)
+      new Link(center, about, 160 * linkScale),
+      new Link(center, experience, 160 * linkScale),
+      new Link(center, skills, 160 * linkScale),
+      new Link(center, projects, 160 * linkScale)
     );
 
     // 3. Project Subnodes (Linked to Projects Category)
-    const proj1 = new Node("p1", "Image Editor", cX + 280, cY + 60, 12, "#00ff87", "item", "#projects");
-    const proj2 = new Node("p2", "Toaster", cX + 310, cY + 140, 12, "#00ff87", "item", "#projects");
-    const proj3 = new Node("p3", "DAGer", cX + 280, cY + 220, 12, "#00ff87", "item", "#projects");
-    const proj4 = new Node("p4", "Déjà Mew", cX + 180, cY + 240, 12, "#00ff87", "item", "#projects");
+    const proj1 = new Node("p1", "Image Editor", cX + 280 * spacingScale, cY + 60 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj2 = new Node("p2", "Toaster", cX + 310 * spacingScale, cY + 140 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj3 = new Node("p3", "DAGer", cX + 280 * spacingScale, cY + 220 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj4 = new Node("p4", "Déjà Mew", cX + 180 * spacingScale, cY + 240 * spacingScale, 12, "#00ff87", "item", "#projects");
 
     nodes.push(proj1, proj2, proj3, proj4);
     links.push(
-      new Link(projects, proj1, 80),
-      new Link(projects, proj2, 85),
-      new Link(projects, proj3, 80),
-      new Link(projects, proj4, 85)
+      new Link(projects, proj1, 80 * linkScale),
+      new Link(projects, proj2, 85 * linkScale),
+      new Link(projects, proj3, 80 * linkScale),
+      new Link(projects, proj4, 85 * linkScale)
     );
 
     // 4. Skills Subnodes (Linked to Skills Category)
-    const sk1 = new Node("s1", "Languages", cX - 280, cY + 60, 12, "#9d4edd", "item", "#skills");
-    const sk2 = new Node("s2", "Web & App Dev", cX - 240, cY + 220, 12, "#9d4edd", "item", "#skills");
+    const sk1 = new Node("s1", "Languages", cX - 280 * spacingScale, cY + 60 * spacingScale, 12, "#9d4edd", "item", "#skills");
+    const sk2 = new Node("s2", "Web & App Dev", cX - 240 * spacingScale, cY + 220 * spacingScale, 12, "#9d4edd", "item", "#skills");
 
     nodes.push(sk1, sk2);
     links.push(
-      new Link(skills, sk1, 80),
-      new Link(skills, sk2, 85)
+      new Link(skills, sk1, 80 * linkScale),
+      new Link(skills, sk2, 85 * linkScale)
     );
 
     // 5. Experience Subnodes (Linked to Experience Category)
-    const jo1 = new Node("j1", "IIT PKD BTech", cX + 260, cY - 140, 12, "#ff6b00", "item", "#experience");
-    const jo2 = new Node("j2", "Student Council", cX + 180, cY - 180, 12, "#ff6b00", "item", "#experience");
-    const jo3 = new Node("j3", "YACC Associate", cX + 100, cY - 150, 12, "#ff6b00", "item", "#experience");
-    const jo4 = new Node("j4", "Petrichor Web", cX + 80, cY - 80, 12, "#ff6b00", "item", "#experience");
+    const jo1 = new Node("j1", "IIT PKD BTech", cX + 260 * spacingScale, cY - 140 * spacingScale, 12, "#ff6b00", "item", "#experience");
+    const jo2 = new Node("j2", "Student Council", cX + 180 * spacingScale, cY - 180 * spacingScale, 12, "#ff6b00", "item", "#experience");
+    const jo3 = new Node("j3", "YACC Associate", cX + 100 * spacingScale, cY - 150 * spacingScale, 12, "#ff6b00", "item", "#experience");
+    const jo4 = new Node("j4", "Petrichor Web", cX + 80 * spacingScale, cY - 80 * spacingScale, 12, "#ff6b00", "item", "#experience");
 
     nodes.push(jo1, jo2, jo3, jo4);
     links.push(
-      new Link(experience, jo1, 80),
-      new Link(experience, jo2, 85),
-      new Link(experience, jo3, 80),
-      new Link(experience, jo4, 85)
+      new Link(experience, jo1, 80 * linkScale),
+      new Link(experience, jo2, 85 * linkScale),
+      new Link(experience, jo3, 80 * linkScale),
+      new Link(experience, jo4, 85 * linkScale)
     );
   }
 
@@ -700,6 +702,75 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, { passive: false });
 
+  // Touch Events support for mobile dragging, panning and clicking
+  canvas.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    const coords = getGraphCoordinates(touch.clientX, touch.clientY);
+
+    let found = null;
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const node = nodes[i];
+      const dx = node.x - coords.x;
+      const dy = node.y - coords.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist <= node.radius + 15) {
+        found = node;
+        break;
+      }
+    }
+
+    if (found) {
+      draggedNode = found;
+      draggedNode.fx = coords.x;
+      draggedNode.fy = coords.y;
+      didDragBackground = false;
+    } else {
+      isDraggingCanvas = true;
+      didDragBackground = false;
+      startDragX = touch.clientX;
+      startDragY = touch.clientY;
+    }
+    // Prevent scrolling when interacting directly with the canvas
+    e.preventDefault();
+  }, { passive: false });
+
+  canvas.addEventListener("touchmove", (e) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    const coords = getGraphCoordinates(touch.clientX, touch.clientY);
+
+    if (draggedNode) {
+      draggedNode.fx = coords.x;
+      draggedNode.fy = coords.y;
+    } else if (isDraggingCanvas) {
+      panX += touch.clientX - startDragX;
+      panY += touch.clientY - startDragY;
+      startDragX = touch.clientX;
+      startDragY = touch.clientY;
+      didDragBackground = true;
+    }
+    e.preventDefault();
+  }, { passive: false });
+
+  canvas.addEventListener("touchend", (e) => {
+    if (draggedNode) {
+      draggedNode.fx = null;
+      draggedNode.fy = null;
+      
+      // Tap on a node triggers drawer opening
+      if (!didDragBackground && draggedNode.url) {
+        openDrawer(draggedNode.url);
+      }
+      draggedNode = null;
+    } else if (isDraggingCanvas && !didDragBackground) {
+      // Tap on empty space closes drawers
+      closeAllDrawers();
+    }
+    isDraggingCanvas = false;
+  });
+
   // Control Buttons
   const btnReset = document.getElementById("btn-reset-graph");
   const btnTogglePhysics = document.getElementById("btn-toggle-physics");
@@ -716,9 +787,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnTogglePhysics) {
     btnTogglePhysics.addEventListener("click", () => {
       runPhysics = !runPhysics;
-      btnTogglePhysics.innerHTML = runPhysics 
-        ? '<i class="fa-solid fa-pause"></i> Freeze' 
-        : '<i class="fa-solid fa-play"></i> Unfreeze';
+      const icon = btnTogglePhysics.querySelector("i");
+      if (icon) {
+        icon.className = runPhysics ? "fa-solid fa-pause" : "fa-solid fa-play";
+      }
+      btnTogglePhysics.title = runPhysics ? "Pause Physics Simulation" : "Resume Physics Simulation";
+      btnTogglePhysics.classList.toggle("active", !runPhysics);
       
       if (!runPhysics) {
         nodes.forEach(n => {

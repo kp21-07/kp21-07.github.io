@@ -45,6 +45,32 @@
         </nav>
 
         <div class="header-contact">
+          <!-- Graph Guide Tooltip and Action Buttons -->
+          <div class="graph-actions-group">
+            <div class="info-tooltip-container">
+              <button class="header-action-btn info-btn" aria-label="Interaction Instructions" title="Graph Interaction Guide">
+                <i class="fa-solid fa-circle-info"></i>
+              </button>
+              <div class="info-tooltip-content">
+                <h4><i class="fa-solid fa-circle-nodes"></i> Graph Guide</h4>
+                <ul>
+                  <li><i class="fa-solid fa-mouse-pointer"></i> Drag nodes to interact</li>
+                  <li><i class="fa-solid fa-arrows-up-down-left-right"></i> Drag background to pan</li>
+                  <li><i class="fa-solid fa-magnifying-glass-plus"></i> Scroll wheel to zoom</li>
+                  <li><i class="fa-solid fa-hand-pointer"></i> Click node for details</li>
+                </ul>
+              </div>
+            </div>
+            <button id="btn-reset-graph" class="header-action-btn" title="Reset Graph Layout">
+              <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <button id="btn-toggle-physics" class="header-action-btn" title="Pause Physics Simulation">
+              <i class="fa-solid fa-pause"></i>
+            </button>
+          </div>
+
+          <span class="header-divider"></span>
+
           <a href="mailto:112401018@smail.iitpkd.ac.in" aria-label="Email" title="Email me" id="mail">
             <i class="fas fa-envelope"></i>
           </a>
@@ -65,23 +91,6 @@
     <section class="hero-graph-section fullscreen-graph">
       <div class="graph-canvas-container">
         <canvas id="graph-canvas"></canvas>
-        
-        <!-- Controls Overlay -->
-        <div class="canvas-controls">
-          <div class="control-title">
-            <i class="fa-solid fa-circle-nodes pulse-icon"></i> Interactive Node Graph
-          </div>
-          <div class="control-instructions">
-            <span><i class="fa-solid fa-mouse-pointer"></i> Drag nodes to interact</span>
-            <span><i class="fa-solid fa-arrows-up-down-left-right"></i> Drag background to pan</span>
-            <span><i class="fa-solid fa-magnifying-glass-plus"></i> Scroll wheel to zoom</span>
-            <span><i class="fa-solid fa-hand-pointer"></i> Click a node to open details</span>
-          </div>
-          <div class="control-buttons">
-            <button id="btn-reset-graph" title="Reset Graph Layout"><i class="fa-solid fa-rotate-left"></i> Reset Layout</button>
-            <button id="btn-toggle-physics" title="Pause Physics Simulation"><i class="fa-solid fa-pause"></i> Freeze</button>
-          </div>
-        </div>
       </div>
     </section>
 

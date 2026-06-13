@@ -260,89 +260,110 @@ header {
   display: block;
 }
 
-/* Floating Controls Overlay */
-.canvas-controls {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(8, 12, 21, 0.8);
-  border: 1px solid var(--panel-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 320px;
-  z-index: 5;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.control-title {
-  font-family: var(--font-mono);
-  color: var(--accent-cyan);
-  font-size: 0.95rem;
-  font-weight: bold;
-  margin-bottom: 12px;
+/* Graph controls in header */
+.graph-actions-group {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.pulse-icon {
-  animation: pulse-glow 2s infinite ease-in-out;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 2px var(--accent-cyan)); }
-  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--accent-cyan)); }
-}
-
-.control-instructions {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.control-instructions span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.control-instructions i {
-  color: var(--accent-blue);
-  width: 14px;
-  text-align: center;
-}
-
-.control-buttons {
-  display: flex;
   gap: 10px;
 }
 
-.control-buttons button {
-  flex: 1;
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.25);
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 6px 10px;
-  border-radius: 4px;
+.header-action-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
   cursor: pointer;
-  display: flex;
+  padding: 6px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  border-radius: 4px;
 }
 
-.control-buttons button:hover {
-  background: rgba(0, 242, 254, 0.2);
-  border-color: var(--accent-cyan);
-  box-shadow: var(--glow-cyan);
+.header-action-btn:hover {
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+  background: rgba(0, 242, 254, 0.05);
+}
+
+.header-action-btn.active {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.header-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(148, 163, 184, 0.15);
+  margin: 0 4px;
+}
+
+/* Info Tooltip */
+.info-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.info-tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 140%;
+  right: -80px;
+  background: rgba(8, 12, 21, 0.95);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 14px;
+  width: 210px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.info-tooltip-container:hover .info-tooltip-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-tooltip-content h4 {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.info-tooltip-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-tooltip-content li {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+
+.info-tooltip-content li i {
+  color: var(--accent-blue);
+  width: 12px;
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -1023,15 +1044,24 @@ header {
    RESPONSIVE DESIGN (TABLETS & MOBILE)
    ========================================================================== */
 /* Graph is fullscreen, keep it 100% on tablets */
-  
+@media (max-width: 1024px) {
   .projects-network-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
 @media (max-width: 768px) {
+  .graph-actions-group,
+  .header-divider {
+    display: none !important;
+  }
+
   .header-container {
     padding: 12px 18px;
+  }
+
+  .projects-network-grid {
+    grid-template-columns: 1fr;
   }
 
   .menu-toggle {
@@ -1123,17 +1153,12 @@ header {
 
 /* Keep fullscreen graph on mobile, overlay stays full */
 
-  .canvas-controls {
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    max-width: none;
-  }
+/* Canvas controls removed from mobile overlay */
 
   .glass-section {
-    width: 100vw;
+    width: 90vw;
     right: -100vw;
-    padding: 100px 20px 20px 20px;
+    padding: 85px 16px 20px 16px;
   }
 
   .section-title {
