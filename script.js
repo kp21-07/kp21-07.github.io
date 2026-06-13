@@ -508,17 +508,29 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // 3. Project Subnodes (Linked to Projects Category)
-    const proj1 = new Node("p1", "Image Editor", cX + 280 * spacingScale, cY + 60 * spacingScale, 12, "#00ff87", "item", "#projects");
-    const proj2 = new Node("p2", "Toaster", cX + 310 * spacingScale, cY + 140 * spacingScale, 12, "#00ff87", "item", "#projects");
-    const proj3 = new Node("p3", "DAGer", cX + 280 * spacingScale, cY + 220 * spacingScale, 12, "#00ff87", "item", "#projects");
-    const proj4 = new Node("p4", "Déjà Mew", cX + 180 * spacingScale, cY + 240 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj1 = new Node("p1", "Image Editor", cX + 290 * spacingScale, cY + 60 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj2 = new Node("p2", "Toaster", cX + 300 * spacingScale, cY + 130 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj3 = new Node("p3", "DAGer", cX + 280 * spacingScale, cY + 200 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj4 = new Node("p4", "Déjà Mew", cX + 220 * spacingScale, cY + 240 * spacingScale, 12, "#00ff87", "item", "#projects");
+    // const proj5 = new Node("p5", "Whiteboard", cX + 100 * spacingScale, cY + 220 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj6 = new Node("p6", "AFRS", cX + 140 * spacingScale, cY + 240 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj7 = new Node("p7", "Hack Assembler & Jack VM", cX + 80 * spacingScale, cY + 180 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj8 = new Node("p8", "Online Treasure Hunt", cX + 60 * spacingScale, cY + 110 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj9 = new Node("p9", "RedLightGreenLight", cX + 100 * spacingScale, cY + 40 * spacingScale, 12, "#00ff87", "item", "#projects");
+    const proj10 = new Node("p10", "VentAir", cX + 180 * spacingScale, cY + 10 * spacingScale, 12, "#00ff87", "item", "#projects");
 
-    nodes.push(proj1, proj2, proj3, proj4);
+    nodes.push(proj1, proj2, proj3, proj4, proj6, proj7, proj8, proj9, proj10);
     links.push(
       new Link(projects, proj1, 80 * linkScale),
       new Link(projects, proj2, 85 * linkScale),
       new Link(projects, proj3, 80 * linkScale),
-      new Link(projects, proj4, 85 * linkScale)
+      new Link(projects, proj4, 85 * linkScale),
+      // new Link(projects, proj5, 80 * linkScale),
+      new Link(projects, proj6, 85 * linkScale),
+      new Link(projects, proj7, 80 * linkScale),
+      new Link(projects, proj8, 85 * linkScale),
+      new Link(projects, proj9, 80 * linkScale),
+      new Link(projects, proj10, 85 * linkScale)
     );
 
     // 4. Skills Subnodes (Linked to Skills Category)

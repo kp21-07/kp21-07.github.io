@@ -997,6 +997,17 @@ header {
 .tag-chip.yolo { background: rgba(243, 156, 18, 0.1); color: #f39c12; border-color: rgba(243, 156, 18, 0.2); }
 .tag-chip.cpp { background: rgba(0, 115, 230, 0.1); color: #0073e6; border-color: rgba(0, 115, 230, 0.2); }
 .tag-chip.openssl { background: rgba(149, 165, 166, 0.1); color: #95a5a6; border-color: rgba(149, 165, 166, 0.2); }
+.tag-chip.hardware { background: rgba(231, 76, 60, 0.1); color: #e74c3c; border-color: rgba(231, 76, 60, 0.2); }
+.tag-chip.appinventor { background: rgba(243, 156, 18, 0.1); color: #f39c12; border-color: rgba(243, 156, 18, 0.2); }
+.tag-chip.ocaml { background: rgba(238, 90, 36, 0.1); color: #ee5a24; border-color: rgba(238, 90, 36, 0.2); }
+.tag-chip.compiler { background: rgba(155, 89, 182, 0.1); color: #9b59b6; border-color: rgba(155, 89, 182, 0.2); }
+.tag-chip.css { background: rgba(41, 128, 185, 0.1); color: #2980b9; border-color: rgba(41, 128, 185, 0.2); }
+.tag-chip.c { background: rgba(52, 152, 219, 0.1); color: #3498db; border-color: rgba(52, 152, 219, 0.2); }
+.tag-chip.raylib { background: rgba(46, 204, 113, 0.1); color: #2ecc71; border-color: rgba(46, 204, 113, 0.2); }
+.tag-chip.network { background: rgba(142, 68, 173, 0.1); color: #8e44ad; border-color: rgba(142, 68, 173, 0.2); }
+.tag-chip.reactnative { background: rgba(97, 218, 251, 0.1); color: #61dafb; border-color: rgba(97, 218, 251, 0.2); }
+.tag-chip.expo { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.2); }
+.tag-chip.ts { background: rgba(49, 120, 198, 0.1); color: #3178c6; border-color: rgba(49, 120, 198, 0.2); }
 
 /* Project actions */
 .project-links {
@@ -1024,6 +1035,30 @@ header {
   background: var(--accent-cyan);
   color: var(--bg-color);
   box-shadow: var(--glow-cyan-strong);
+  font-weight: 700;
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 255, 135, 0.08);
+  border: 1px solid rgba(0, 255, 135, 0.2);
+  color: #00ff87;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  margin-left: 10px;
+}
+
+.demo-btn:hover {
+  background: #00ff87;
+  color: var(--bg-color);
+  box-shadow: 0 0 15px rgba(0, 255, 135, 0.5);
   font-weight: 700;
 }
 

@@ -1,522 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kalakuntla Parjanya - Portfolio</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    
-    <link rel="stylesheet" href="style.css?v=4" />
-  </head>
-  <body>
-    <!-- Cyber Grid Background Animation Overlay -->
-    <div class="cyber-grid"></div>
-    <div class="glow-vignette"></div>
 
-    <!-- Header Navigation -->
-    <header>
-      <div class="header-container">
-        <button class="logo-area" id="logo-home-btn" aria-label="Go to home">
-          <span class="code-bracket">&lt;</span>
-          <span class="logo-name">K Parjanya</span>
-          <span class="code-bracket">/&gt;</span>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalakuntla Parjanya - Portfolio</title>
 
-        <nav id="main-nav">
-          <ul>
-            <li><a href="#about" class="nav-link"><i class="fa-solid fa-user-ninja"></i> About</a></li>
-            <li><a href="#experience" class="nav-link"><i class="fa-solid fa-code-fork"></i> Experience</a></li>
-            <li><a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a></li>
-            <li><a href="#projects" class="nav-link"><i class="fa-solid fa-terminal"></i> Projects</a></li>
-          </ul>
-        </nav>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
 
-        <div class="header-contact">
-          <!-- Graph Guide Tooltip and Action Buttons -->
-          <div class="graph-actions-group">
-            <div class="info-tooltip-container">
-              <button class="header-action-btn info-btn" aria-label="Interaction Instructions" title="Graph Interaction Guide">
-                <i class="fa-solid fa-circle-info"></i>
-              </button>
-              <div class="info-tooltip-content">
-                <h4><i class="fa-solid fa-circle-nodes"></i> Graph Guide</h4>
-                <ul>
-                  <li><i class="fa-solid fa-mouse-pointer"></i> Drag nodes to interact</li>
-                  <li><i class="fa-solid fa-arrows-up-down-left-right"></i> Drag background to pan</li>
-                  <li><i class="fa-solid fa-magnifying-glass-plus"></i> Scroll wheel to zoom</li>
-                  <li><i class="fa-solid fa-hand-pointer"></i> Click node for details</li>
-                </ul>
-              </div>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+
+<body>
+  <!-- Cyber Grid Background Animation Overlay -->
+  <div class="cyber-grid"></div>
+  <div class="glow-vignette"></div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="header-container">
+      <button class="logo-area" id="logo-home-btn" aria-label="Go to home">
+        <span class="code-bracket">&lt;</span>
+        <span class="logo-name">K Parjanya</span>
+        <span class="code-bracket">/&gt;</span>
+      </button>
+
+      <nav id="main-nav">
+        <ul>
+          <li><a href="#about" class="nav-link"><i class="fa-solid fa-user-ninja"></i> About</a></li>
+          <li><a href="#experience" class="nav-link"><i class="fa-solid fa-code-fork"></i> Experience</a></li>
+          <li><a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a></li>
+          <li><a href="#projects" class="nav-link"><i class="fa-solid fa-terminal"></i> Projects</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-contact">
+        <!-- Graph Guide Tooltip and Action Buttons -->
+        <div class="graph-actions-group">
+          <div class="info-tooltip-container">
+            <button class="header-action-btn info-btn" aria-label="Interaction Instructions"
+              title="Graph Interaction Guide">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+            <div class="info-tooltip-content">
+              <h4><i class="fa-solid fa-circle-nodes"></i> Graph Guide</h4>
+              <ul>
+                <li><i class="fa-solid fa-mouse-pointer"></i> Drag nodes to interact</li>
+                <li><i class="fa-solid fa-arrows-up-down-left-right"></i> Drag background to pan</li>
+                <li><i class="fa-solid fa-magnifying-glass-plus"></i> Scroll wheel to zoom</li>
+                <li><i class="fa-solid fa-hand-pointer"></i> Click node for details</li>
+              </ul>
             </div>
-            <button id="btn-reset-graph" class="header-action-btn" title="Reset Graph Layout">
-              <i class="fa-solid fa-rotate-left"></i>
-            </button>
-            <button id="btn-toggle-physics" class="header-action-btn" title="Pause Physics Simulation">
-              <i class="fa-solid fa-pause"></i>
-            </button>
           </div>
-
-          <span class="header-divider"></span>
-
-          <a href="mailto:112401018@smail.iitpkd.ac.in" aria-label="Email" title="Email me" id="mail">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/kparjanya21" target="_blank" aria-label="LinkedIn" title="LinkedIn Profile" id="linkedin">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/kp21-07" target="_blank" aria-label="GitHub" title="GitHub Profile" id="github">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="cv/main.pdf" target="_blank" aria-label="Resume" title="View Resume" id="resume">
-            <i class="fa-solid fa-file-pdf"></i>
-          </a>
-          <button class="menu-toggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+          <button id="btn-reset-graph" class="header-action-btn" title="Reset Graph Layout">
+            <i class="fa-solid fa-rotate-left"></i>
+          </button>
+          <button id="btn-toggle-physics" class="header-action-btn" title="Pause Physics Simulation">
+            <i class="fa-solid fa-pause"></i>
           </button>
         </div>
-      </div>
-    </header>
 
-    <!-- Fullscreen Interactive Graph Canvas -->
-    <section class="hero-graph-section fullscreen-graph">
-      <div class="graph-canvas-container">
-        <canvas id="graph-canvas"></canvas>
+        <span class="header-divider"></span>
+
+        <a href="mailto:112401018@smail.iitpkd.ac.in" aria-label="Email" title="Email me" id="mail">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kparjanya21" target="_blank" aria-label="LinkedIn" title="LinkedIn Profile"
+          id="linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/kp21-07" target="_blank" aria-label="GitHub" title="GitHub Profile" id="github">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="cv/main.pdf" target="_blank" aria-label="Resume" title="View Resume" id="resume">
+          <i class="fa-solid fa-file-pdf"></i>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Interactive Graph Canvas -->
+  <section class="hero-graph-section fullscreen-graph">
+    <div class="graph-canvas-container">
+      <canvas id="graph-canvas"></canvas>
+    </div>
+  </section>
+
+  <!-- Side Panel Drawers Container -->
+  <div class="drawers-container">
+
+    <!-- ABOUT ME DRAWER -->
+    <section id="about" class="glass-section">
+      <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
+      <div class="section-header">
+        <div class="terminal-dots">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <h2 class="terminal-title">About Me</h2>
+      </div>
+      <div class="section-content">
+        <div class="terminal-body">
+          <div class="command-line"><span class="prompt">guest@parjanya:~$</span> cat about_me.md</div>
+          <p>
+            A third-year computer science student at <strong>IIT Palakkad</strong> who is passionate about creating
+            effective software that prioritizes privacy. capable of frontend development and low-level systems
+            programming.
+          </p>
+          <p>
+            My primary areas of interest include <strong>Graph Theory</strong>, <strong>Computer Vision</strong>,
+            <strong>Game Development</strong>, and <strong>low-level programming</strong>.
+          </p>
+          <div class="command-line"><span class="prompt">guest@parjanya:~$</span> neofetch</div>
+          <div class="neofetch-data">
+            <span class="neo-label">Name:</span> Kalakuntla Parjanya<br>
+            <span class="neo-label">OS:</span> Linux / Web Browser<br>
+            <span class="neo-label">Host:</span> Indian Institute of Technology Palakkad<br>
+            <span class="neo-label">CGPA:</span> 9.19 / 10.0<br>
+            <span class="neo-label">Key Languages:</span> C++, Python, C, OCaml, Odin<br>
+            <span class="neo-label">Web Technologies:</span> Svelte, React, HTML5, CSS3, JavaScript
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Side Panel Drawers Container -->
-    <div class="drawers-container">
-      
-      <!-- ABOUT ME DRAWER -->
-      <section id="about" class="glass-section">
-        <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
-        <div class="section-header">
-          <div class="terminal-dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <h2 class="terminal-title">About Me</h2>
+    <!-- MY EXPERIENCE DRAWER (Education & Experience) -->
+    <section id="experience" class="glass-section">
+      <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
+      <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> My Experience</h2>
+      <p class="section-subtitle">Academic milestones, positions of responsibility, and structural leadership
+        experiences.</p>
+
+      <!-- Git Branch Selector -->
+      <div class="git-branch-selector">
+        <span class="selector-label"><i class="fa-solid fa-code-fork"></i> Checkout Branch:</span>
+        <div class="branch-buttons">
+          <button class="branch-btn active" data-branch="all">
+            <span class="git-ref-icon"><i class="fa-solid fa-folder-tree"></i></span> all-history
+          </button>
+          <button class="branch-btn" data-branch="main">
+            <span class="git-ref-icon"><i class="fa-solid fa-code-commit"></i></span> main
+          </button>
+          <button class="branch-btn" data-branch="governance">
+            <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/council
+          </button>
+          <button class="branch-btn" data-branch="clubs">
+            <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/clubs
+          </button>
+          <button class="branch-btn" data-branch="fest">
+            <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/petrichor
+          </button>
         </div>
-        <div class="section-content">
-          <div class="terminal-body">
-            <div class="command-line"><span class="prompt">guest@parjanya:~$</span> cat about_me.md</div>
-            <p>
-              A third-year computer science student at <strong>IIT Palakkad</strong> who is passionate about creating effective software that prioritizes privacy. capable of frontend development and low-level systems programming.
-            </p>
-            <p>
-              My primary areas of interest include <strong>Graph Theory</strong>, <strong>Computer Vision</strong>, <strong>Game Development</strong>, and <strong>low-level programming</strong>.
-            </p>
-            <div class="command-line"><span class="prompt">guest@parjanya:~$</span> neofetch</div>
-            <div class="neofetch-data">
-              <span class="neo-label">Name:</span> Kalakuntla Parjanya<br>
-              <span class="neo-label">OS:</span> Linux / Web Browser<br>
-              <span class="neo-label">Host:</span> Indian Institute of Technology Palakkad<br>
-              <span class="neo-label">CGPA:</span> 9.19 / 10.0<br>
-              <span class="neo-label">Key Languages:</span> C++, Python, C, OCaml, Odin<br>
-              <span class="neo-label">Web Technologies:</span> Svelte, React, HTML5, CSS3, JavaScript
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MY EXPERIENCE DRAWER (Education & Experience) -->
-      <section id="experience" class="glass-section">
-        <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
-        <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> My Experience</h2>
-        <p class="section-subtitle">Academic milestones, positions of responsibility, and structural leadership experiences.</p>
-        
-        <!-- Git Branch Selector -->
-        <div class="git-branch-selector">
-          <span class="selector-label"><i class="fa-solid fa-code-fork"></i> Checkout Branch:</span>
-          <div class="branch-buttons">
-            <button class="branch-btn active" data-branch="all">
-              <span class="git-ref-icon"><i class="fa-solid fa-folder-tree"></i></span> all-history
-            </button>
-            <button class="branch-btn" data-branch="main">
-              <span class="git-ref-icon"><i class="fa-solid fa-code-commit"></i></span> main
-            </button>
-            <button class="branch-btn" data-branch="governance">
-              <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/council
-            </button>
-            <button class="branch-btn" data-branch="clubs">
-              <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/clubs
-            </button>
-            <button class="branch-btn" data-branch="fest">
-              <span class="git-ref-icon"><i class="fa-solid fa-code-branch"></i></span> branch/petrichor
-            </button>
-          </div>
-        </div>
-        
-        <div class="git-graph-container">
-          <!-- The visual canvas drawing git branch lines connecting dots -->
-          <canvas id="git-line-canvas"></canvas>
-          
-          <div class="git-timeline">
-            <!-- COMMIT 1: IIT Palakkad BTech -->
-            <div class="git-node" data-branch="main">
-              <div class="git-badge">
-                <span class="git-hash">commit 8a3f910</span>
-                <span class="git-ref ref-main">HEAD -> main</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>IIT Palakkad</h3>
-                  <span class="git-date">2024 - Present</span>
-                </div>
-                <h4 class="git-subtitle">Bachelor of Technology &bull; Computer Science and Engineering</h4>
-                <p>Focusing on software structures, core CS concepts, and algorithm principles. Maintaining a 9.19 CGPA.</p>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-brain"></i> Systems</span>
-                  <span class="tag"><i class="fa-solid fa-code"></i> C++ / Python</span>
-                  <span class="tag"><i class="fa-solid fa-square-root-variable"></i> CGPA: 9.19</span>
-                </div>
-              </div>
-            </div>
-
-             <!-- BRANCH: Student Governance - Commit 1: Deputy Academic Secretary -->
-            <div class="git-node" data-branch="governance">
-              <div class="git-badge">
-                <span class="git-hash">commit 5e7a9b2</span>
-                <span class="git-ref ref-feature">branch/council</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Student Affairs Council</h3>
-                  <span class="git-date">May 2026 - Present</span>
-                </div>
-                <h4 class="git-subtitle">Deputy Academic Affairs Secretary</h4>
-                <ul class="git-list">
-                  <li>Liaised between the student senate, academic department heads, and administration to coordinate academic affairs and curriculum feedback systems.</li>
-                  <li>Coordinated peer-assisted learning systems and represented student interests in structural academic policy revisions.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-graduation-cap"></i> Academic Secretary</span>
-                  <span class="tag"><i class="fa-solid fa-people-roof"></i> Governance</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BRANCH: Clubs - Commit 1: YACC Associate -->
-            <div class="git-node" data-branch="clubs">
-              <div class="git-badge">
-                <span class="git-hash">commit f9e8d12</span>
-                <span class="git-ref ref-clubs">branch/clubs</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>YACC (Yet Another Coding Club)</h3>
-                  <span class="git-date">May 2025 - Present</span>
-                </div>
-                <h4 class="git-subtitle">Associate</h4>
-                <ul class="git-list">
-                  <li>Contributing member of the core coding club organizing programming contests, hackathons, and teaching algorithms to juniors.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-keyboard"></i> Coding Club</span>
-                  <span class="tag"><i class="fa-solid fa-code"></i> Algorithms</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BRANCH: Student Governance - Commit 2: Batch Representative -->
-            <div class="git-node" data-branch="governance">
-              <div class="git-badge">
-                <span class="git-hash">commit 2d5b12a</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Academic Council</h3>
-                  <span class="git-date">May 2025 - May 2026</span>
-                </div>
-                <h4 class="git-subtitle">Batch Representative</h4>
-                <ul class="git-list">
-                  <li>Represented batch academic interests, consolidated feedback on curriculum and courses, and coordinated directly with CSE faculty.</li>
-                  <li>Resolved batch-level student academic queries and managed exam schedules and academic senate feedback.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-users"></i> Batch Rep</span>
-                  <span class="tag"><i class="fa-solid fa-clipboard-list"></i> Academic Coordination</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BRANCH: Petrichor Fest -->
-            <div class="git-node" data-branch="fest">
-              <div class="git-badge">
-                <span class="git-hash">commit a1c8e76</span>
-                <span class="git-ref ref-fest">branch/petrichor</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Petrichor Web Development Team</h3>
-                  <span class="git-date">May 2025 - Jan 2026</span>
-                </div>
-                <h4 class="git-subtitle">Official Web Development Team Member</h4>
-                <ul class="git-list">
-                  <li>Contributed to the development of the official website for Petrichor, the techno-cultural fest of IIT Palakkad.</li>
-                  <li>Worked closely with designers and developers under deadlines using Svelte and TypeScript.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-brands fa-svelte"></i> Svelte</span>
-                  <span class="tag"><i class="fa-solid fa-code"></i> TypeScript</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BRANCH: Clubs - Commit 2: Arcane Club Co-Founder -->
-            <div class="git-node" data-branch="clubs">
-              <div class="git-badge">
-                <span class="git-hash">commit d2b8c4a</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Arcane Club</h3>
-                  <span class="git-date">Apr 2025 - May 2026</span>
-                </div>
-                <h4 class="git-subtitle">Co-Founder & Coordinator</h4>
-                <ul class="git-list">
-                  <li>Co-founded the speedcubing and puzzle-solving club, organizing regular speedcubing workshops, campus competitions, and structural puzzle challenges.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-cubes"></i> Arcane Club</span>
-                  <span class="tag"><i class="fa-solid fa-puzzle-piece"></i> Speedcubing</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- BRANCH: Student Governance - Commit 3: Class Representative -->
-            <div class="git-node" data-branch="governance">
-              <div class="git-badge">
-                <span class="git-hash">commit 1b9c3d4</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Class Committee</h3>
-                  <span class="git-date">Jan 2025 - May 2026</span>
-                </div>
-                <h4 class="git-subtitle">Class Representative (CR)</h4>
-                <ul class="git-list">
-                  <li>Elected to voice student feedback, coordinate course logistics, and act as a primary point of contact between class students and course instructors.</li>
-                  <li>Organized course schedules, resolved minor disputes, and managed student feedback forums.</li>
-                </ul>
-                <div class="git-meta">
-                  <span class="tag"><i class="fa-solid fa-user-tie"></i> Class Rep</span>
-                  <span class="tag"><i class="fa-solid fa-comments"></i> Representation</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- COMMIT 3: Test Scores -->
-            <div class="git-node" data-branch="main">
-              <div class="git-badge">
-                <span class="git-hash">commit 7d2c14b</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Achievements & Test Rankings</h3>
-                  <span class="git-date">May 2024</span>
-                </div>
-                <h4 class="git-subtitle">Entrance Exam Scores</h4>
-                <ul class="git-list">
-                  <li><strong>JEE Advanced 2024:</strong> AIR 5890</li>
-                  <li><strong>JEE Main 2024:</strong> CRL 6494 (99.60 Percentile)</li>
-                  <li><strong>TS EAPCET 2024:</strong> State Rank 726</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- COMMIT 2: Schooling -->
-            <div class="git-node" data-branch="main">
-              <div class="git-badge">
-                <span class="git-hash">commit 4c9e8d3</span>
-              </div>
-              <div class="git-card">
-                <div class="git-header">
-                  <h3>Narayana Junior College & Tejaswi High</h3>
-                  <span class="git-date">2022 - 2024</span>
-                </div>
-                <h4 class="git-subtitle">Intermediate & Secondary School Education</h4>
-                <ul class="git-list">
-                  <li><strong>Narayana Junior College (TS):</strong> Intermediate Board (96.9%) [2022 - 2024]</li>
-                  <li><strong>Tejaswi High School (Warangal):</strong> SSC Board (CGPA: 10) [2022]</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SKILLS DRAWER -->
-      <section id="skills" class="glass-section">
-        <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
-        <h2 class="section-title"><i class="fa-solid fa-brain"></i> Skills</h2>
-        <p class="section-subtitle">Programming languages, web frameworks, and libraries extracted from my CV.</p>
-        
-        <div class="skills-grid-container">
-          <!-- Programming Languages -->
-          <div class="skill-group-card">
-            <div class="skill-group-header">
-              <i class="fa-solid fa-code skill-group-icon"></i>
-              <h3>Languages</h3>
-            </div>
-            <div class="skill-badge-cloud">
-              <span class="skill-node" data-related="cpp,c,odin,ocaml">C++ <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="py,opencv,yolo">Python <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="cpp,c">C <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="ocaml">OCaml <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="odin">Odin <span class="glow-dot"></span></span>
-            </div>
-          </div>
-
-          <!-- Web & App Development -->
-          <div class="skill-group-card">
-            <div class="skill-group-header">
-              <i class="fa-solid fa-globe skill-group-icon"></i>
-              <h3>Web & App Development</h3>
-            </div>
-            <div class="skill-badge-cloud">
-              <span class="skill-node" data-related="js,svelte,react">HTML/CSS <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="js,react,svelte">JavaScript <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="js,react">React <span class="glow-dot"></span></span>
-              <span class="skill-node" data-related="js,svelte">Svelte <span class="glow-dot"></span></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS DRAWER -->
-      <section id="projects" class="glass-section">
-        <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
-        <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Projects</h2>
-        <p class="section-subtitle">A collection of projects detailing software engineering, vision, and compilers.</p>
-        
-        <div class="projects-network-grid">
-          <!-- CV Project 1: Privacy-First Image Editor -->
-          <div class="project-mesh-card">
-            <div class="project-status-bar">
-              <div class="status-left">
-                <span class="status-indicator online"></span>
-                <span class="project-id">adobe-ps</span>
-              </div>
-              <span class="project-category"><i class="fa-solid fa-award"></i> Inter IIT TechMeet 14.0</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Privacy-First Image Editor</h3>
-              <p>A web-based image editor focusing on secure on-device inference. Built for Inter IIT TechMeet 14.0.</p>
-              <div class="project-tags">
-                <span class="tag-chip react">React</span>
-                <span class="tag-chip onnx">ONNX</span>
-                <span class="tag-chip privacy">On-Device Inference</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/kp21-07/image-editor" target="_blank" class="github-btn">
-                  <i class="fab fa-github"></i> View GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- CV Project 2: Toaster -->
-          <div class="project-mesh-card">
-            <div class="project-status-bar">
-              <div class="status-left">
-                <span class="status-indicator online"></span>
-                <span class="project-id">toaster</span>
-              </div>
-              <span class="project-category"><i class="fa-solid fa-microchip"></i> OELP Project</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Toaster (Breadboard to Netlist)</h3>
-              <p>A full-stack engine designed to digitize circuits. Recognizes breadboard components using YOLOv8/OpenCV and outputs standard SPICE netlists.</p>
-              <div class="project-tags">
-                <span class="tag-chip react">React</span>
-                <span class="tag-chip fastapi">FastAPI</span>
-                <span class="tag-chip cv">OpenCV</span>
-                <span class="tag-chip yolo">YOLO</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/kp21-07/toaster" target="_blank" class="github-btn">
-                  <i class="fab fa-github"></i> View GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- CV Project 3: DAGer -->
-          <div class="project-mesh-card">
-            <div class="project-status-bar">
-              <div class="status-left">
-                <span class="status-indicator online"></span>
-                <span class="project-id">dagr</span>
-              </div>
-              <span class="project-category"><i class="fa-solid fa-shield-halved"></i> Hobby Project</span>
-            </div>
-            <div class="project-card-body">
-              <h3>DAGer: A Mini-Git Clone</h3>
-              <p>A version control tool implemented in C++ mapping version trees. Features init, add, commit, log, and a SHA1 content-addressable filesystem.</p>
-              <div class="project-tags">
-                <span class="tag-chip cpp">C++</span>
-                <span class="tag-chip openssl">OpenSSL SHA1</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/kp21-07/DAGer" target="_blank" class="github-btn">
-                  <i class="fab fa-github"></i> View GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Extra: DejaMew -->
-          <div class="project-mesh-card">
-            <div class="project-status-bar">
-              <div class="status-left">
-                <span class="status-indicator online"></span>
-                <span class="project-id">deja-mew</span>
-              </div>
-              <span class="project-category"><i class="fa-solid fa-gamepad"></i> Game Dev</span>
-            </div>
-            <div class="project-card-body">
-              <h3>Déjà Mew &bull; 2D Space Cat</h3>
-              <p>A 2D platformer adventure game built with Godot featuring space levels and time-travel puzzle mechanics.</p>
-              <div class="project-tags">
-                <span class="tag-chip godot">Godot</span>
-                <span class="tag-chip game">Game Dev</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/kp21-07/deja-mew" target="_blank" class="github-btn">
-                  <i class="fab fa-github"></i> View GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="overlay-footer">
-      <div class="footer-container">
-        <p class="footer-copy">&copy; 2026 Kalakuntla Parjanya.</p>
-        <p class="footer-tech">Vanilla JS &bull; HTML5 &bull; Custom CSS Grid</p>
       </div>
-    </footer>
 
-    <!-- Canvas logic and UI bindings -->
-    <script src="script.js?v=5"></script>
-  </body>
+      <div class="git-graph-container">
+        <!-- The visual canvas drawing git branch lines connecting dots -->
+        <canvas id="git-line-canvas"></canvas>
+
+        <div class="git-timeline">
+          <!-- COMMIT 1: IIT Palakkad BTech -->
+          <div class="git-node" data-branch="main">
+            <div class="git-badge">
+              <span class="git-hash">commit 8a3f910</span>
+              <span class="git-ref ref-main">HEAD -> main</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>IIT Palakkad</h3>
+                <span class="git-date">2024 - Present</span>
+              </div>
+              <h4 class="git-subtitle">Bachelor of Technology &bull; Computer Science and Engineering</h4>
+              <p>Focusing on software structures, core CS concepts, and algorithm principles. Maintaining a 9.19 CGPA.
+              </p>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-brain"></i> Systems</span>
+                <span class="tag"><i class="fa-solid fa-code"></i> C++ / Python</span>
+                <span class="tag"><i class="fa-solid fa-square-root-variable"></i> CGPA: 9.19</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Student Governance - Commit 1: Deputy Academic Secretary -->
+          <div class="git-node" data-branch="governance">
+            <div class="git-badge">
+              <span class="git-hash">commit 5e7a9b2</span>
+              <span class="git-ref ref-feature">branch/council</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Student Affairs Council</h3>
+                <span class="git-date">May 2026 - Present</span>
+              </div>
+              <h4 class="git-subtitle">Deputy Academic Affairs Secretary</h4>
+              <ul class="git-list">
+                <li>Liaised between the student senate, academic department heads, and administration to coordinate
+                  academic affairs and curriculum feedback systems.</li>
+                <li>Coordinated peer-assisted learning systems and represented student interests in structural academic
+                  policy revisions.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-graduation-cap"></i> Academic Secretary</span>
+                <span class="tag"><i class="fa-solid fa-people-roof"></i> Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Clubs - Commit 1: YACC Associate -->
+          <div class="git-node" data-branch="clubs">
+            <div class="git-badge">
+              <span class="git-hash">commit f9e8d12</span>
+              <span class="git-ref ref-clubs">branch/clubs</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>YACC (Yet Another Coding Club)</h3>
+                <span class="git-date">May 2025 - Present</span>
+              </div>
+              <h4 class="git-subtitle">Associate</h4>
+              <ul class="git-list">
+                <li>Contributing member of the core coding club organizing programming contests, hackathons, and
+                  teaching algorithms to juniors.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-keyboard"></i> Coding Club</span>
+                <span class="tag"><i class="fa-solid fa-code"></i> Algorithms</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Student Governance - Commit 2: Batch Representative -->
+          <div class="git-node" data-branch="governance">
+            <div class="git-badge">
+              <span class="git-hash">commit 2d5b12a</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Academic Council</h3>
+                <span class="git-date">May 2025 - May 2026</span>
+              </div>
+              <h4 class="git-subtitle">Batch Representative</h4>
+              <ul class="git-list">
+                <li>Represented batch academic interests, consolidated feedback on curriculum and courses, and
+                  coordinated directly with CSE faculty.</li>
+                <li>Resolved batch-level student academic queries and managed exam schedules and academic senate
+                  feedback.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-users"></i> Batch Rep</span>
+                <span class="tag"><i class="fa-solid fa-clipboard-list"></i> Academic Coordination</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Petrichor Fest -->
+          <div class="git-node" data-branch="fest">
+            <div class="git-badge">
+              <span class="git-hash">commit a1c8e76</span>
+              <span class="git-ref ref-fest">branch/petrichor</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Petrichor Web Development Team</h3>
+                <span class="git-date">May 2025 - Jan 2026</span>
+              </div>
+              <h4 class="git-subtitle">Official Web Development Team Member</h4>
+              <ul class="git-list">
+                <li>Contributed to the development of the official website for Petrichor, the techno-cultural fest of
+                  IIT Palakkad.</li>
+                <li>Worked closely with designers and developers under deadlines using Svelte and TypeScript.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-brands fa-svelte"></i> Svelte</span>
+                <span class="tag"><i class="fa-solid fa-code"></i> TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Clubs - Commit 2: Arcane Club Co-Founder -->
+          <div class="git-node" data-branch="clubs">
+            <div class="git-badge">
+              <span class="git-hash">commit d2b8c4a</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Arcane Club</h3>
+                <span class="git-date">Apr 2025 - May 2026</span>
+              </div>
+              <h4 class="git-subtitle">Co-Founder & Coordinator</h4>
+              <ul class="git-list">
+                <li>Co-founded the speedcubing and puzzle-solving club, organizing regular speedcubing workshops, campus
+                  competitions, and structural puzzle challenges.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-cubes"></i> Arcane Club</span>
+                <span class="tag"><i class="fa-solid fa-puzzle-piece"></i> Speedcubing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH: Student Governance - Commit 3: Class Representative -->
+          <div class="git-node" data-branch="governance">
+            <div class="git-badge">
+              <span class="git-hash">commit 1b9c3d4</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Class Committee</h3>
+                <span class="git-date">Jan 2025 - May 2026</span>
+              </div>
+              <h4 class="git-subtitle">Class Representative (CR)</h4>
+              <ul class="git-list">
+                <li>Elected to voice student feedback, coordinate course logistics, and act as a primary point of
+                  contact between class students and course instructors.</li>
+                <li>Organized course schedules, resolved minor disputes, and managed student feedback forums.</li>
+              </ul>
+              <div class="git-meta">
+                <span class="tag"><i class="fa-solid fa-user-tie"></i> Class Rep</span>
+                <span class="tag"><i class="fa-solid fa-comments"></i> Representation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMMIT 3: Test Scores -->
+          <div class="git-node" data-branch="main">
+            <div class="git-badge">
+              <span class="git-hash">commit 7d2c14b</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Achievements & Test Rankings</h3>
+                <span class="git-date">May 2024</span>
+              </div>
+              <h4 class="git-subtitle">Entrance Exam Scores</h4>
+              <ul class="git-list">
+                <li><strong>JEE Advanced 2024:</strong> AIR 5890</li>
+                <li><strong>JEE Main 2024:</strong> CRL 6494 (99.60 Percentile)</li>
+                <li><strong>TS EAPCET 2024:</strong> State Rank 726</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- COMMIT 2: Schooling -->
+          <div class="git-node" data-branch="main">
+            <div class="git-badge">
+              <span class="git-hash">commit 4c9e8d3</span>
+            </div>
+            <div class="git-card">
+              <div class="git-header">
+                <h3>Narayana Junior College & Tejaswi High</h3>
+                <span class="git-date">2022 - 2024</span>
+              </div>
+              <h4 class="git-subtitle">Intermediate & Secondary School Education</h4>
+              <ul class="git-list">
+                <li><strong>Narayana Junior College (TS):</strong> Intermediate Board (96.9%) [2022 - 2024]</li>
+                <li><strong>Tejaswi High School (Warangal):</strong> SSC Board (CGPA: 10) [2022]</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS DRAWER -->
+    <section id="skills" class="glass-section">
+      <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
+      <h2 class="section-title"><i class="fa-solid fa-brain"></i> Skills</h2>
+      <p class="section-subtitle">Programming languages, web frameworks, and libraries extracted from my CV.</p>
+
+      <div class="skills-grid-container">
+        <!-- Programming Languages -->
+        <div class="skill-group-card">
+          <div class="skill-group-header">
+            <i class="fa-solid fa-code skill-group-icon"></i>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-badge-cloud">
+            <span class="skill-node" data-related="cpp,c,odin,ocaml">C++ <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="py,opencv,yolo">Python <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="cpp,c">C <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="ocaml">OCaml <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="odin">Odin <span class="glow-dot"></span></span>
+          </div>
+        </div>
+
+        <!-- Web & App Development -->
+        <div class="skill-group-card">
+          <div class="skill-group-header">
+            <i class="fa-solid fa-globe skill-group-icon"></i>
+            <h3>Web & App Development</h3>
+          </div>
+          <div class="skill-badge-cloud">
+            <span class="skill-node" data-related="js,svelte,react">HTML/CSS <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="js,react,svelte">JavaScript <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="js,react">React <span class="glow-dot"></span></span>
+            <span class="skill-node" data-related="js,svelte">Svelte <span class="glow-dot"></span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS DRAWER -->
+    <section id="projects" class="glass-section">
+      <button class="drawer-close-btn" aria-label="Close drawer">&times;</button>
+      <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Projects</h2>
+      <p class="section-subtitle">A collection of projects detailing software engineering, vision, and compilers.</p>
+
+      <div class="projects-network-grid">
+        <!-- CV Project 1: Privacy-First Image Editor -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">adobe-ps</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-award"></i> Inter IIT TechMeet 14.0</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Privacy-First Image Editor</h3>
+            <p>A web-based image editor focusing on secure on-device inference. Built for Inter IIT TechMeet 14.0.</p>
+            <div class="project-tags">
+              <span class="tag-chip react">React</span>
+              <span class="tag-chip onnx">ONNX</span>
+              <span class="tag-chip privacy">On-Device Inference</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/image-editor" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CV Project 2: Toaster -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">toaster</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-microchip"></i> OELP Project</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Toaster (Breadboard to Netlist)</h3>
+            <p>A full-stack engine designed to digitize circuits. Recognizes breadboard components using YOLOv8/OpenCV
+              and outputs standard SPICE netlists.</p>
+            <div class="project-tags">
+              <span class="tag-chip react">React</span>
+              <span class="tag-chip fastapi">FastAPI</span>
+              <span class="tag-chip cv">OpenCV</span>
+              <span class="tag-chip yolo">YOLO</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/toaster" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CV Project 3: DAGer -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">dagr</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-shield-halved"></i> Hobby Project</span>
+          </div>
+          <div class="project-card-body">
+            <h3>DAGer: A Mini-Git Clone</h3>
+            <p>A version control tool implemented in C++ mapping version trees. Features init, add, commit, log, and a
+              SHA1 content-addressable filesystem.</p>
+            <div class="project-tags">
+              <span class="tag-chip cpp">C++</span>
+              <span class="tag-chip openssl">OpenSSL SHA1</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/DAGer" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extra: DejaMew -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">deja-mew</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-gamepad"></i> Game Dev</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Déjà Mew &bull; 2D Space Cat</h3>
+            <p>A 2D platformer adventure game built with Godot featuring space levels and time-travel puzzle mechanics.
+            </p>
+            <div class="project-tags">
+              <span class="tag-chip godot">Godot</span>
+              <span class="tag-chip game">Game Dev</span>
+            </div>
+            <div class="project-links">
+              <a href="https://art-42.itch.io/dejameow" target="_blank" class="github-btn">
+                <i class="fa-brands fa-itch-io"></i> Play on itch.io
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Whiteboard
+          <div class="project-mesh-card">
+            <div class="project-status-bar">
+              <div class="status-left">
+                <span class="status-indicator warning"></span>
+                <span class="project-id">whiteboard</span>
+              </div>
+              <span class="project-category"><i class="fa-solid fa-palette"></i> Graphics / Network</span>
+            </div>
+            <div class="project-card-body">
+              <h3>Whiteboard &bull; Real-time Collaboration</h3>
+              <p>A collaborative whiteboard application in C using Raylib, featuring custom brush shapes, undo-redo stacks, and ENet-based networking.</p>
+              <div class="project-tags">
+                <span class="tag-chip c">C</span>
+                <span class="tag-chip raylib">Raylib</span>
+                <span class="tag-chip network">ENet</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/kp21-07/whiteboard-collaboration" target="_blank" class="github-btn">
+                  <i class="fab fa-github"></i> View GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          -->
+
+        <!-- Project 6: Autonomous Fire Response -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">afrs</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-robot"></i> Robotics</span>
+          </div>
+          <div class="project-card-body">
+            <h3>AFRS &bull; Autonomous Fire Response System</h3>
+            <p>Designed and built an ESP32-powered remote-controlled vehicle capable of autonomously detecting flames,
+              navigating obstacles, and extinguishing fires.</p>
+            <div class="project-tags">
+              <span class="tag-chip hardware">ESP32</span>
+              <span class="tag-chip arduino">Arduino IDE</span>
+              <span class="tag-chip appinventor">MIT App Inventor</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Hack Assembler -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">hack-compiler</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-gears"></i> Systems</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Hack Assembler & Jack VM Translator</h3>
+            <p>A compiler toolchain built in OCaml translating high-level VM commands into Hack assembly and machine
+              code, featuring symbol parsing and memory management.</p>
+            <div class="project-tags">
+              <span class="tag-chip ocaml">OCaml</span>
+              <span class="tag-chip compiler">Nand2Tetris</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/jackvm" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: Online Treasure Hunt -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">treasure-hunt</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-globe"></i> Web Dev</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Online Treasure Hunt Platform</h3>
+            <p>A web platform developed for Freshers' Week hosting an interactive online treasure hunt with progressive,
+              validated puzzles and custom clues.</p>
+            <div class="project-tags">
+              <span class="tag-chip html">HTML5</span>
+              <span class="tag-chip css">CSS3</span>
+              <span class="tag-chip js">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/treasure_hunt-25" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: RedLightGreenLight -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">redlight-greenlight</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-mobile-screen-button"></i> Mobile App</span>
+          </div>
+          <div class="project-card-body">
+            <h3>RedLightGreenLight</h3>
+            <p>An interactive mobile application built using React Native and Expo to orchestrate and play the classic Red Light, Green Light game.</p>
+            <div class="project-tags">
+              <span class="tag-chip reactnative">React Native</span>
+              <span class="tag-chip expo">Expo</span>
+              <span class="tag-chip ts">TypeScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Akshat-42/RedlightGreenlight" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10: VentAir Engineers -->
+        <div class="project-mesh-card">
+          <div class="project-status-bar">
+            <div class="status-left">
+              <span class="status-indicator online"></span>
+              <span class="project-id">ventair</span>
+            </div>
+            <span class="project-category"><i class="fa-solid fa-globe"></i> Web Dev</span>
+          </div>
+          <div class="project-card-body">
+            <h3>VentAir Engineers</h3>
+            <p>A professional landing page and corporate website built for an industrial engineering and refrigeration machinery firm, featuring responsive showcase panels.</p>
+            <div class="project-tags">
+              <span class="tag-chip react">React</span>
+              <span class="tag-chip css">CSS3</span>
+              <span class="tag-chip js">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/kp21-07/ventair" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> View GitHub
+              </a>
+              <a href="https://ventair.vercel.app" target="_blank" class="demo-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="overlay-footer">
+    <div class="footer-container">
+      <p class="footer-copy">&copy; 2026 Kalakuntla Parjanya.</p>
+      <p class="footer-tech">Vanilla JS &bull; HTML5 &bull; Custom CSS Grid</p>
+    </div>
+  </footer>
+
+  <!-- Canvas logic and UI bindings -->
+  <script src="script.js?v=10"></script>
+</body>
+
 </html>
