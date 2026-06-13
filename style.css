@@ -234,6 +234,7 @@ header {
 #mail:hover { color: var(--accent-cyan); text-shadow: var(--glow-cyan); }
 #linkedin:hover { color: #0077b5; }
 #github:hover { color: #fff; }
+#resume:hover { color: #ff4d4d; }
 
 .menu-toggle {
   display: none;
@@ -673,10 +674,25 @@ header {
 }
 
 .git-subtitle {
-  color: var(--accent-cyan);
   font-size: 0.95rem;
   font-weight: 500;
   margin-bottom: 12px;
+}
+
+.git-node[data-branch="main"] .git-subtitle {
+  color: var(--accent-cyan);
+}
+
+.git-node[data-branch="governance"] .git-subtitle {
+  color: var(--accent-orange);
+}
+
+.git-node[data-branch="clubs"] .git-subtitle {
+  color: var(--accent-purple);
+}
+
+.git-node[data-branch="fest"] .git-subtitle {
+  color: var(--accent-green);
 }
 
 .git-card p {
@@ -1183,10 +1199,117 @@ header {
   grid-template-columns: 1fr;
 }
 
-.footer-container {
-  flex-direction: column;
-  gap: 15px;
-  text-align: center;
+  .footer-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* Mobile branch selector overrides */
+  .git-branch-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .branch-buttons {
+    gap: 8px;
+  }
+
+  .branch-btn {
+    padding: 5px 10px;
+    font-size: 0.78rem;
+  }
+
 }
 
+/* Desktop Git Branch Selector Styles */
+.git-branch-selector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  background: rgba(13, 20, 35, 0.45);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.selector-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.selector-label i {
+  color: var(--accent-cyan);
+}
+
+.branch-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.branch-btn {
+  background: rgba(8, 12, 21, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.branch-btn:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  color: var(--text-primary);
+  background: rgba(0, 242, 254, 0.04);
+}
+
+.branch-btn.active {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.15);
+}
+
+.git-ref-icon {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+/* Branch specific colors when active */
+.branch-btn[data-branch="governance"].active {
+  border-color: #ff6b00;
+  color: #ff6b00;
+  background: rgba(255, 107, 0, 0.08);
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.15);
+}
+
+.branch-btn[data-branch="clubs"].active {
+  border-color: #9d4edd;
+  color: #9d4edd;
+  background: rgba(157, 78, 221, 0.08);
+  box-shadow: 0 0 12px rgba(157, 78, 221, 0.15);
+}
+
+.branch-btn[data-branch="fest"].active {
+  border-color: #00ff87;
+  color: #00ff87;
+  background: rgba(0, 255, 135, 0.08);
+  box-shadow: 0 0 12px rgba(0, 255, 135, 0.15);
 }

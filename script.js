@@ -9,12 +9,58 @@ document.addEventListener("DOMContentLoaded", () => {
     // Close all other drawers first
     closeAllDrawers();
 
-    const targetDrawer = document.querySelector(targetId);
+    // Parse branch query parameter if present, e.g. #experience?branch=governance
+    const parts = targetId.split("?");
+    const cleanId = parts[0];
+    const query = parts[1] || "";
+    let branchParam = null;
+    if (query) {
+      const match = query.match(/branch=([^&]+)/);
+      if (match) branchParam = match[1];
+    }
+
+    const targetDrawer = document.querySelector(cleanId);
     if (targetDrawer) {
       targetDrawer.classList.add("drawer-open");
       
       // If we opened the experience timeline, trigger redrawing of the Git timeline connections
-      if (targetId === "#experience") {
+      if (cleanId === "#experience") {
+        if (branchParam) {
+          // Find the button with data-branch === branchParam
+          const targetBtn = document.querySelector(`.branch-btn[data-branch="${branchParam}"]`);
+          if (targetBtn) {
+            // Remove active from all and click this one
+            const branchButtons = document.querySelectorAll(".branch-btn");
+            branchButtons.forEach(b => b.classList.remove("active"));
+            targetBtn.classList.add("active");
+            
+            // Filter the commits
+            const gitNodes = document.querySelectorAll(".git-node");
+            gitNodes.forEach(node => {
+              const nodeBranch = node.getAttribute("data-branch");
+              if (branchParam === "all" || nodeBranch === "main" || nodeBranch === branchParam) {
+                node.style.display = "flex";
+                node.style.opacity = "1";
+              } else {
+                node.style.display = "none";
+              }
+            });
+          }
+        } else {
+          // Default to all-history button active and show all commits
+          const allBtn = document.querySelector(`.branch-btn[data-branch="all"]`);
+          if (allBtn) {
+            const branchButtons = document.querySelectorAll(".branch-btn");
+            branchButtons.forEach(b => b.classList.remove("active"));
+            allBtn.classList.add("active");
+            
+            const gitNodes = document.querySelectorAll(".git-node");
+            gitNodes.forEach(node => {
+              node.style.display = "flex";
+              node.style.opacity = "1";
+            });
+          }
+        }
         setTimeout(drawGitTimeline, 300);
       }
     }
@@ -26,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Bind close buttons click handlers
+  // Bind close buttons click handler s
   closeBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -158,6 +204,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Calculate Y coordinates relative to gitContainer
     nodes.forEach((node) => {
+      // Skip hidden nodes
+      if (node.style.display === "none") return;
+
       const branchName = node.getAttribute("data-branch") || "main";
       const card = node.querySelector(".git-card");
       const badge = node.querySelector(".git-badge");
@@ -171,7 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
         y: nodeCenterY,
         branch: branchName,
         x: lanes[branchName] || lanes.main,
-        color: colors[branchName] || colors.main
+        color: colors[branchName] || colors.main,
+        node: node
       });
     });
 
@@ -194,38 +244,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Draw Branch Lines (Bezier curves branching off main)
     const branches = ["governance", "clubs", "fest"];
     branches.forEach((bName) => {
+      // If filtering branch, skip drawing other branch lines
+      const activeBtn = document.querySelector(".branch-btn.active");
+      const activeBranch = activeBtn ? activeBtn.getAttribute("data-branch") : "all";
+      if (activeBranch !== "all" && activeBranch !== bName) return;
+
       const bCommits = commitPositions.filter(p => p.branch === bName);
       if (bCommits.length === 0) return;
 
       ctx.beginPath();
       ctx.strokeStyle = colors[bName];
 
-      // Find first commit in branch, trace parent branch start from main lane
-      const firstCommitY = bCommits[0].y;
-      const startY = firstCommitY - 40; // Split starting Y height
+      // The timeline is reverse-chronological (top is newest, bottom is oldest).
+      // So the branch starts (forks off main) at the bottom (oldest commit).
+      const oldestCommit = bCommits[bCommits.length - 1];
+      const startY = oldestCommit.y + 40;
 
       ctx.moveTo(lanes.main, startY);
       
-      // Bezier curve to branch lane
+      // Bezier curve up and right to branch lane
       ctx.bezierCurveTo(
-        lanes.main, startY + 15,
-        lanes[bName], startY + 15,
-        lanes[bName], startY + 30
+        lanes.main, startY - 15,
+        lanes[bName], startY - 15,
+        lanes[bName], startY - 30
       );
 
-      // Line connecting branch commits
-      bCommits.forEach((pos) => {
-        ctx.lineTo(lanes[bName], pos.y);
-      });
+      // Line connecting branch commits from oldest to newest (bottom to top)
+      for (let i = bCommits.length - 1; i >= 0; i--) {
+        ctx.lineTo(lanes[bName], bCommits[i].y);
+      }
 
-      // Merge back to main at the end of the branch
-      const lastCommitY = bCommits[bCommits.length - 1].y;
-      const endY = lastCommitY + 40;
-      
-      ctx.lineTo(lanes[bName], endY - 30);
+      // Merge back to main above the newest commit of the branch
+      const newestCommit = bCommits[0];
+      const endY = newestCommit.y - 40;
+      ctx.lineTo(lanes[bName], endY + 30);
       ctx.bezierCurveTo(
-        lanes[bName], endY - 15,
-        lanes.main, endY - 15,
+        lanes[bName], endY + 15,
+        lanes.main, endY + 15,
         lanes.main, endY
       );
 
@@ -255,6 +310,31 @@ document.addEventListener("DOMContentLoaded", () => {
   drawGitTimeline();
   window.addEventListener("resize", drawGitTimeline);
   window.addEventListener("load", drawGitTimeline);
+
+  // Experience branch selection interaction
+  const branchButtons = document.querySelectorAll(".branch-btn");
+  branchButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      branchButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const selectedBranch = btn.getAttribute("data-branch");
+      const gitNodes = document.querySelectorAll(".git-node");
+
+      gitNodes.forEach(node => {
+        const nodeBranch = node.getAttribute("data-branch");
+        if (selectedBranch === "all" || nodeBranch === "main" || nodeBranch === selectedBranch) {
+          node.style.display = "flex";
+          node.style.opacity = "1";
+        } else {
+          node.style.display = "none";
+        }
+      });
+
+      // Redraw timeline
+      setTimeout(drawGitTimeline, 50);
+    });
+  });
 
   /* ==========================================================================
      INTERACTIVE 2D PHYSICS NETWORK CANVAS
@@ -451,11 +531,11 @@ document.addEventListener("DOMContentLoaded", () => {
       new Link(skills, sk2, 85 * linkScale)
     );
 
-    // 5. Experience Subnodes (Linked to Experience Category)
-    const jo1 = new Node("j1", "IIT PKD BTech", cX + 260 * spacingScale, cY - 140 * spacingScale, 12, "#ff6b00", "item", "#experience");
-    const jo2 = new Node("j2", "Student Council", cX + 180 * spacingScale, cY - 180 * spacingScale, 12, "#ff6b00", "item", "#experience");
-    const jo3 = new Node("j3", "YACC Associate", cX + 100 * spacingScale, cY - 150 * spacingScale, 12, "#ff6b00", "item", "#experience");
-    const jo4 = new Node("j4", "Petrichor Web", cX + 80 * spacingScale, cY - 80 * spacingScale, 12, "#ff6b00", "item", "#experience");
+    // 5. Experience Subnodes (Linked to Experience Category, representing the Git branches)
+    const jo1 = new Node("j1", "main", cX + 260 * spacingScale, cY - 140 * spacingScale, 12, "#ff6b00", "item", "#experience?branch=main");
+    const jo2 = new Node("j2", "branch/council", cX + 180 * spacingScale, cY - 180 * spacingScale, 12, "#ff6b00", "item", "#experience?branch=governance");
+    const jo3 = new Node("j3", "branch/clubs", cX + 100 * spacingScale, cY - 150 * spacingScale, 12, "#ff6b00", "item", "#experience?branch=clubs");
+    const jo4 = new Node("j4", "branch/petrichor", cX + 80 * spacingScale, cY - 80 * spacingScale, 12, "#ff6b00", "item", "#experience?branch=fest");
 
     nodes.push(jo1, jo2, jo3, jo4);
     links.push(

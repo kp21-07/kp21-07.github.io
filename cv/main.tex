@@ -1,0 +1,294 @@
+%-------------------------
+% Resume in Latex
+% Author : Arkadeep Das, Manas Daruka, Ayush Sharma, Abhinav Gupta
+% License : MIT
+%------------------------
+
+%---- Required Packages and Functions ----
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.25cm, top=1.0cm, right=1.25cm, bottom=1.0cm}
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+\usepackage[most]{tcolorbox}
+\tcbset{
+	frame code={},
+	center title,
+	left=0pt,
+	right=0pt,
+	top=0pt,
+	bottom=0pt,
+	colback=gray!20,
+	colframe=white,
+	width=\dimexpr\textwidth\relax,
+	enlarge left by=-2mm,
+	boxsep=4pt,
+	arc=0pt,outer arc=0pt,
+}
+
+\urlstyle{same}
+
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{:\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.6mm}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1},\hspace{0.8mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}\vspace{0.6mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{1.2mm}
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\small{#4}} \\
+        \textit{\small{#3}} &  \small{#2}\\
+    \end{tabular*}\\[-1.5mm]
+}
+
+\newcommand{\resumeProject}[4]{\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\small{#3}} \\
+        \small{\textit{#2}} & \small{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\vspace{-1mm}\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0.4mm]\small}
+
+\newcommand{\resumeSubHeadingListEnd}{\vspace{0.5mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-1.2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+%---- End of Packages and Functions ------
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%
+\begin{document}
+\fontfamily{cmr}\selectfont
+
+\begin{center}
+    {\Huge \textbf{Kalakuntla Parjanya}} \\[1.5mm]
+    \small
+    \href{mailto:112401018@smail.iitpkd.ac.in}{112401018@smail.iitpkd.ac.in} \ \ \textbullet\ \ 
+    \href{mailto:kparjanya21@gmail.com}{kparjanya21@gmail.com} \ \ \textbullet\ \ 
+    \href{tel:+918367231921}{+91-8367231921} \\ \vspace{0.5mm}
+    \href{https://www.linkedin.com/in/kparjanya21}{LinkedIn} \ \ \textbullet\ \ 
+    \href{https://github.com/kp21-07}{GitHub} \ \ \textbullet\ \ 
+    \href{https://leetcode.com/u/kparjanya21}{Leetcode} \ \ \textbullet\ \ 
+    \href{https://codeforces.com/profile/kparjanya21}{Codeforces} \ \ \textbullet\ \ 
+    \href{https://kp21-07.github.io/}{Portfolio}
+\end{center}
+
+%-----------ABOUT ME-----------------
+\section{\textbf{About Me}}
+\begin{justify}
+A third-year computer science student who is passionate about creating effective software that prioritizes privacy. capable of frontend development and low-level systems programming. My areas of interest are Graph Theory, Computer Vision, Game developement, and low-level programming.
+\end{justify}
+
+%-----------EDUCATION-----------------
+\section{\textbf{Education}}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Indian Institute of Technology Palakkad}{Kerala, India}
+    {Bachelor of Technology in Computer Science and Engineering; CGPA: 9.19}{2024 -- Present}
+
+  \resumeSubheading
+    {Narayana Junior College, Hyderabad}{Telangana, India}
+    {Intermediate (Board of Intermediate Education, Telangana); 96.9\%}{2022 -- 2024}
+
+  \resumeSubheading
+    {Tejaswi High School, Warangal}{Telangana, India}
+    {Secondary School Certificate (CGPA: 10)}{2022}
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{\textbf{Projects}}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+    {Privacy-First Image Editor (Adobe PS)}{}
+    {A Web-based privacy-first image editor}{Inter IIT TechMeet 14.0}
+\resumeItemListStart
+  \item Developed a privacy-first application focusing on on-device inference.
+  \item Integrated ONNX models and built the application using React.
+  \item Technologies used: React, ONNX.
+\resumeItemListEnd
+\resumeSubheading
+    {Toaster [Breadboard to Netlist - OELP]}{}
+    {A Web-based tool to convert an image of a circuit into a netlist}{IIT Palakkad}
+\resumeItemListStart
+  \item Designed a full-stack engine to automate circuit digitization by recognizing components on a breadboard using YOLOv8 and OpenCV.
+  \item Implemented a robust pipeline to convert detected components and connections into a standard SPICE netlist for simulation.
+  \item Technologies used: OpenCV, YOLO, React, FastAPI.
+\resumeItemListEnd
+\resumeSubheading
+  {DAGer : A Mini-Git Clone in C++}{}
+  {Hobby Project}{}
+\resumeItemListStart
+  \item Built a mini git-like tool that supports basic version control operations such as init, add, commit, status, and log.
+  \item Implemented a content-addressable filesystem using hashing (SHA1) for data integrity and file deduplication, inspired by Git's object storage.
+  \item Technologies used: C++, SHA1 (OpenSSL).
+\resumeItemListEnd
+
+% \resumeSubheading
+%   {Whiteboard with Real-time collaboration}{In Progress}
+%   {Low Level C Project}{}
+% \resumeItemListStart
+%   \item Implemented a basic whiteboard-like application in C using Raylib, with various brush types and an undo-redo stack.
+%   \item Plan to implement a real-time collaboration option using ENet*.
+%   \item Technologies used: C. Raylib.
+% \resumeItemListEnd
+% \resumeSubheading
+%   {Autonomous Fire Response System}{}
+%   {Engineering Design (ID1050A) Project}{IIT Palakkad}
+% \resumeItemListStart
+%   \item Designed and built a remote-controlled vehicle capable of autonomously detecting and extinguishing flames.
+%   \item Developed the control application using MIT App Inventor and contributed to firmware development.
+%   \item Technologies used: ESP32, Arduino IDE.
+% \resumeItemListEnd
+
+% \resumeSubheading
+%   {Hack Assembler \& Jack Virtual Machine (VM) Translator}{}
+%   {Foundations of Computer Systems (CS2011) Project (Nand2Tetris)}{IIT Palakkad}
+% \resumeItemListStart
+%   \item Built a VM translator converting high-level VM commands into Hack assembly code and then into machine code.
+%   \item Implemented memory access, branching, and function call handling. Also implemented parsing and symbol table management logic.
+%   \item Technologies used: OCaml.
+% \resumeItemListEnd
+
+% \resumeSubheading
+%   {DejaMew – 2D Space Cat Adventure Game}{}
+%   {Game Development Project}{YACC - IIT Palakkad}
+% \vspace{-1.75mm}
+% \resumeItemListStart
+%   \item Developed a space-themed 2D platformer featuring time-travel mechanics.
+%   \item Designed puzzles, levels, and assisted in implementing game logic.
+%   \item Technologies used: Godot Engine.
+% \resumeItemListEnd
+% \vspace{-.5mm}
+% \resumeSubheading
+%   {Online Treasure Hunt Platform}{}
+%   {Web Development Project}{Freshers' Week - IIT Palakkad}
+% \vspace{-1.75mm}
+% \resumeItemListStart
+%   \item Built a web platform for conducting an interactive online treasure hunt with progressive clues and puzzles.
+%   \item Designed and implemented the frontend and deployed the website.
+%   \item Technologies used: HTML, CSS, JavaScript.
+% \resumeItemListEnd
+
+
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------------
+\section{\textbf{Technical Skills}}
+\vspace{1mm}
+\begin{tabularx}{\textwidth}{@{}l @{\hspace{4mm}} L}
+    \textbf{Languages:} & Python, C, C++, OCaml, Odin \\
+    \textbf{Web \& App Development:} & HTML, CSS, JavaScript, React, Svelte
+\end{tabularx}
+
+%-------- VOLUNTEER EXPERIENCE -----------
+\section{\textbf{Volunteer Experience}}
+
+\resumeSubHeadingListStart
+
+\resumeSubheading
+    {Petrichor Web Development Team Member}
+    {May 2025 - Jan 2026}
+    {Web Development using Svelte and TypeScript}
+    {IIT Palakkad}
+
+\resumeItemListStart
+  \item Contributed to the development of the official website for Petrichor, the techno-cultural fest of IIT Palakkad.
+  \item Gained experience collaborating in a team environment under strict deadlines.
+  \item Technologies used: Svelte, TypeScript.
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE / POSITIONS-----------------
+\section{\textbf{Positions of Responsibility}}
+\begin{itemize}[leftmargin=3ex, noitemsep, itemsep=0.6mm]
+  \item \textbf{Deputy Academic Affairs Secretary}, Student Affairs Council, IIT Palakkad
+  \item \textbf{Batch Representative}, Academic Council, IIT Palakkad
+  \item \textbf{Associate}, YACC, IIT Palakkad
+  \item \textbf{Co-Founder}, Arcane Club, IIT Palakkad
+\end{itemize}
+
+%-----------ACHIEVEMENTS-----------------
+\section{\textbf{Achievements}}
+\begin{itemize}[leftmargin=3ex, noitemsep, itemsep=0.6mm]
+  \item \textbf{JEE Advanced 2024}, AIR 5890
+  \item \textbf{JEE Main 2024}, CRL 6494 (99.60 percentile)
+  \item \textbf{TS EAPCET 2024}, Rank 726
+\end{itemize}
+
+%-----------COMMENTED SECTIONS (NOT RELEVANT)-----------------
+% \section{\textbf{Research Publications}}
+% \section{\textbf{Work Experience}}
+% \section{\textbf{Positions of Responsibility}}
+% \section{\textbf{Training and Workshops}}
+% \section{\textbf{Extra Curricular Activities}}
+
+\end{document}
